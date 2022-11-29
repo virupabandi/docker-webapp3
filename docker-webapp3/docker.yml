@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+     - name: stop container 
+       shell: docker container stop dockeransible
+     - name: remove container
+       shell: docker container rm dockeransible
+     - name: docker image removal
+       shell: docker image rm -f virupabandi/docker-webapp3
+     - name: create new container
+       shell: docker run -itd --name dockeransible -p 9000:80 virupabandi/docker-webapp3
